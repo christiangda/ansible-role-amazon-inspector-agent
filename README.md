@@ -43,6 +43,28 @@ This role work on RedHat, CentOS, Amazon Linux, Debian and Ubuntu distributions
 ia_auto_update: true
 ```
 
+```yaml
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: ""
+ia_http_proxy: ""
+```
+
+```yaml
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: ""
+ia_https_proxy: ""
+```
+
+```yaml
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: "169.254.169.254"
+# notes:
+# * Always disable proxy for aws metadata ip (169.254.169.254)
+ia_no_proxy: "169.254.169.254"
+```
 ## Dependencies
 
 None
@@ -51,13 +73,27 @@ None
 
 ### RedHat/CentOS, Ubuntu and Debian
 
+**Using default vars values**
+
+```yaml
+- hosts: servers
+    gather_facts: True
+    roles:
+    - role: christiangda.amazon_inspector_agent
+```
+
+**Disabling auto update and using proxy configuration**
+
 ```yaml
 - hosts: servers
     gather_facts: True
     roles:
     - role: christiangda.amazon_inspector_agent
         vars:
-            ia_auto_update: true
+            ia_auto_update: false
+            ia_http_proxy: "192.168.2.253:3128"
+            ia_https_proxy: "192.168.2.253:3128"
+            ia_no_proxy: "169.254.169.254,192.168.2.1"
 ```
 
 ###  Amazon Linux 1/2 (my-playbook.yml)
