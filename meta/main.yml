@@ -1,0 +1,43 @@
+---
+galaxy_info:
+  role_name: amazon_inspector_agent
+  author: Christian González Di Antonio
+  description: Ansible Role for AWS Inspector Agent
+  license: license GPLv3
+  company: No Company
+  min_ansible_version: 2.5
+
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Amazon
+      versions:
+        - all
+    - name: debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      version:
+        - trusty
+        - xenial
+        - bionic
+
+  galaxy_tags:
+    - aws
+    - inspector
+    - agent
+    - redhat
+    - system
+    - utilities
+    - amazon
+    - linux
+    - ubuntu
+    - debian
+    - centos
+    - cloud
+    - security
+
+dependencies: []

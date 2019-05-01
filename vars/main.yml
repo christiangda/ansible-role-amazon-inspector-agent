@@ -1,0 +1,10 @@
+---
+ia_package: awsagent
+ia_package_url: https://inspector-agent.amazonaws.com/linux/latest/install
+ia_package_gpg: https://d1wk0tztpsntt1.cloudfront.net/linux/latest/inspector.gpg
+
+ia_global_downloads_timeout: 120
+ia_temp_path: /tmp
+
+ia_service_script: "/etc/init.d/{{ ia_package }}"
+ia_service_script_env: "/etc/init.d/{{ ia_package }}.env"

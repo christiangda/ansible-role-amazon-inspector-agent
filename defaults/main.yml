@@ -1,0 +1,9 @@
+---
+# posible values:
+# - true
+# - false
+# default value: true
+# notes:
+# * set value to false when you don't want to enable auto update the agent
+# Reference: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents.html#agent-updates
+ia_auto_update: true

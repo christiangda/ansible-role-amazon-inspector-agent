@@ -1,0 +1,7 @@
+---
+ia_dependencies_packages:
+  - libcurl
+  - libgcc
+  - libstdc++
+  - openssl-libs
+  - libpcap

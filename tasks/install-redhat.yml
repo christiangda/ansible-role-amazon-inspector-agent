@@ -1,0 +1,31 @@
+---
+- name: Download {{ ia_package }}
+  get_url:
+    url: "{{ ia_package_url }}"
+    dest: "/{{ ia_temp_path }}/{{ ia_package }}"
+    timeout: "{{ ia_global_downloads_timeout }}"
+    mode: 0755
+  tags:
+    - download
+    - install
+
+- name: Install {{ ia_package }} dependencies
+  yum:
+    name: "{{ ia_dependencies_packages }}"
+    state: present
+  tags:
+    - install
+
+- name: Install {{ ia_package }}
+  shell: "/{{ ia_temp_path }}/{{ ia_package }}"
+  changed_when: false
+  when: ia_auto_update
+  tags:
+    - install
+
+- name: Install {{ ia_package }} (auto update disabled)
+  shell: "/{{ ia_temp_path }}/{{ ia_package }} -u false"
+  changed_when: false
+  when: not ia_auto_update
+  tags:
+    - install
