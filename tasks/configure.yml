@@ -5,4 +5,11 @@
     dest: "{{ ia_service_script_env }}"
     force: true
   when: ia_use_proxy
-  notify: Restart {{ ia_package }}
+  notify: Restart {{ ia_package }} service
+
+- name: Removing {{ ia_package }} proxy configuration file
+  file:
+    path: "{{ ia_service_script_env }}"
+    state: absent
+  when: not ia_use_proxy
+  notify: Restart {{ ia_package }} service

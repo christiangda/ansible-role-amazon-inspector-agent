@@ -62,14 +62,14 @@
     - install
 
 - name: Install {{ ia_package }}
-  shell: "/{{ ia_temp_path }}/{{ ia_package }}"
+  command: "/{{ ia_temp_path }}/{{ ia_package }}"
   changed_when: false
   when: ia_auto_update
   tags:
     - install
 
 - name: Install {{ ia_package }} (auto update disabled)
-  shell: "/{{ ia_temp_path }}/{{ ia_package }} -u false"
+  command: "/{{ ia_temp_path }}/{{ ia_package }} -u false"
   changed_when: false
   when: not ia_auto_update
   tags:

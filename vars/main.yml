@@ -13,4 +13,4 @@ ia_service_script_env: "/etc/init.d/{{ ia_package }}.env"
 # Conditional variables
 ia_use_http_proxy: "{{ true if ia_http_proxy is defined and ia_http_proxy|length > 0 else false }}"
 ia_use_https_proxy: "{{ true if ia_https_proxy is defined and ia_https_proxy|length > 0 else false }}"
-ia_use_proxy: "{{ true if ia_use_http_proxy is true or ia_use_https_proxy is true else false }}"
+ia_use_proxy: "{{ true if ia_use_http_proxy or ia_use_https_proxy else false }}"
