@@ -1,7 +1,7 @@
 # Ansible Role: christiangda.amazon_inspector_agent
 
 [![Build Status](https://travis-ci.org/christiangda/ansible-role-amazon-inspector-agent.svg?branch=master)](https://travis-ci.org/christiangda/ansible-role-amazon-inspector-agent)
-[![Ansible Role](https://img.shields.io/ansible/role/39604.svg)](https://galaxy.ansible.com/christiangda/amazon_inspector_agent)
+[![Ansible Role](https://img.shields.io/ansible/role/40095.svg)](https://galaxy.ansible.com/christiangda/amazon_inspector_agent)
 
 This role [Install AWS Inspector Agent](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html)
 
