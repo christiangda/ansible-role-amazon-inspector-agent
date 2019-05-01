@@ -7,3 +7,20 @@
 # * set value to false when you don't want to enable auto update the agent
 # Reference: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents.html#agent-updates
 ia_auto_update: true
+
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: ""
+ia_http_proxy: ""
+
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: ""
+ia_https_proxy: ""
+
+# posible values:
+# - https://docs.aws.amazon.com/inspector/latest/userguide/inspector_agents-on-linux.html
+# default value: "169.254.169.254"
+# notes:
+# * Always disable proxy for aws metadata ip (169.254.169.254)
+ia_no_proxy: "169.254.169.254"

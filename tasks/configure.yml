@@ -1,0 +1,8 @@
+---
+- name: Deploy {{ ia_package }} proxy configuration file
+  template:
+    src: proxy/awsagent.env.j2
+    dest: "{{ ia_service_script_env }}"
+    force: true
+  when: ia_use_proxy
+  notify: Restart {{ ia_package }}

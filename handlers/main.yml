@@ -1,1 +1,3 @@
 ---
+- name: Restart {{ ia_package }}
+  command: "{{ ia_service_script }} restart"
