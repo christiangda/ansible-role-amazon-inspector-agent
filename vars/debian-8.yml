@@ -6,3 +6,4 @@ ia_dependencies_packages:
   - libstdc++6
   - libssl1.0.0
   - libpcap0.8
+  - gnupg

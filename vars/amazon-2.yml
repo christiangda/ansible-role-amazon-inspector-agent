@@ -5,3 +5,4 @@ ia_dependencies_packages:
   - libstdc++
   - openssl-libs
   - libpcap
+  - gnupg
