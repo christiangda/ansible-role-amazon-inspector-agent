@@ -10,4 +10,4 @@
       changed_when: false
 
   roles:
-    - role: christiangda.amazon_inspector_agent
+    - role: amazon-inspector-agent
