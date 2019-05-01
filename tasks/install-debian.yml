@@ -1,4 +1,38 @@
 ---
+- name: Download {{ ia_package }} public key
+  get_url:
+    url: "{{ ia_package_gpg }}"
+    dest: "{{ ia_temp_path }}/{{ ia_package }}.key"
+    timeout: "{{ ia_global_downloads_timeout }}"
+  tags:
+    - download-signature
+    - verify-signature
+    - download
+    - install
+
+- name: Add {{ ia_package }} public key
+  command: gpg --import "{{ ia_temp_path }}/{{ ia_package }}.key"
+  register: add_key
+  failed_when: "'BAD' in add_key.stderr"
+  changed_when: false
+  args:
+    chdir: "{{ ia_temp_path }}"
+  tags:
+    - add-key
+    - download
+    - install
+
+- name: Download {{ ia_package }} signature
+  get_url:
+    url: "{{ ia_package_signature }}"
+    dest: "{{ ia_temp_path }}/{{ ia_package }}.sig"
+    timeout: "{{ ia_global_downloads_timeout }}"
+  tags:
+    - download-signature
+    - verify-signature
+    - download
+    - install
+
 - name: Download {{ ia_package }}
   get_url:
     url: "{{ ia_package_url }}"
@@ -7,6 +41,17 @@
     mode: 0755
   tags:
     - download
+    - install
+
+- name: Verify {{ ia_package }} package signature
+  command: gpg --verify {{ ia_package }}.sig {{ ia_package }}
+  register: verified_sig
+  failed_when: "'BAD' in verified_sig.stderr"
+  changed_when: false
+  args:
+    chdir: "{{ ia_temp_path }}"
+  tags:
+    - verify-signature
     - install
 
 - name: Install {{ ia_package }} dependencies
