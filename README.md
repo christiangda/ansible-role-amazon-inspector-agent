@@ -145,8 +145,8 @@ This role is tested using [Molecule](https://molecule.readthedocs.io/en/latest/)
 mkdir ansible-roles
 cd ansible-roles/
 
-virtualenv --no-site-packages --python /usr/bin/python2.7 vend
-source vend/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install pip --upgrade
 pip install pytest
 pip install pytest-mock
@@ -163,8 +163,8 @@ pip install docker-py
 
 ```bash
 git clone https://github.com/christiangda/ansible-role-amazon-inspector-agent.git
-ln -s ansible-role-amazon-inspector-agent amazon-inspector-agent
-cd ansible-role-amazon-inspector-agent
+ln -s ansible-role-amazon-inspector-agent christiangda.amazon_inspector_agent
+cd christiangda.amazon_inspector_agent
 ```
 
 **Execute the test**
