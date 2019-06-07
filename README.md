@@ -30,6 +30,8 @@ This role work on RedHat, CentOS, Amazon Linux, Debian and Ubuntu distributions
   * jessie
   * stretch
 
+To see the compatibility matrix of Python vs. Ansible see the project [Travis-CI build matrix](https://travis-ci.org/christiangda/ansible-role-amazon-inspector-agent)
+
 ## Role Variables
 
 ```yaml
